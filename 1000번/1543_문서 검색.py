@@ -1,3 +1,2 @@
 n = input()
-n1 = input()
-print(n.count(n1))
+print(n.count(input()))
