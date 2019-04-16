@@ -1,6 +1,3 @@
-N = int(input())
-happy = list(map(int,input().split()))
-high = max(happy)
-low = min(happy)
-temp = high - low
-print(temp)
+t = int(input())
+n = list(map(int,input().split()))
+print(max(n)-min(n))
