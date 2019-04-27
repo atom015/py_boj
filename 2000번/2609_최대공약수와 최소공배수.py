@@ -7,5 +7,5 @@ while 1:
         m = r
     else:
         print(n)
-        print(int(n1*m2/n)) #n*m = 최대공약수 * 최소공배수라는 성질을이용
+        print(int(n1*m2/n)) #n*m = L*G라는 성질을이용
         break
