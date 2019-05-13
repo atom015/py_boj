@@ -10,3 +10,4 @@ for i in range(t):
             s += n[j]
         stack.append(s)
 print(sum(stack))
+#이건 간단하게 수를 정렬한다음에 식대로 처리하면 된다.
