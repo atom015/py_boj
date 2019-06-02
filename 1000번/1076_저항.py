@@ -1,15 +1,12 @@
-color = ["black","brown","red","orange","yellow","green","blue","violet","grey","white"]
-value = [0,1,2,3,4,5,6,7,8,9]
-mul = [1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000
-]
-input_color = []
-Po = []
+re = {"black":"0","brown":"1","red":"2","orange":"3","yellow":"4","green":"5","blue":"6","violet":"7","grey":"8","white":"9"}
+mul = [1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000]
+li = []
 for i in range(3):
-    input_color.append(input())
-for i in range(3):
-    if i == 2:
-        Po.append(mul[color.index(input_color[i])])
-    else:
-        Po.append(value[color.index(input_color[i])])
-result = int(str(Po[0])+str(Po[1]))*Po[2]
-print(result)
+    n = input()
+    if i == 0:
+        li.append(n)
+    elif i == 1:
+        li.append(n)
+        result = re[li[0]]+re[li[1]]
+    elif i == 2:
+        print(int(result)*int(mul[int(re[n])]))
