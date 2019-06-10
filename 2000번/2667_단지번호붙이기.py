@@ -1,23 +1,19 @@
 n = int(input())
 li = [[int(i) for i in list(input())] for i in range(n)]
-result =[]
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
+result = []
 def dfs(x,y):
     global cnt
     li[x][y] = 0
     for i in range(4):
-        if x+1 < n and li[x+1][y] == 1:
-            dfs(x+1,y)
+        nx = x + dx[i]
+        ny = y + dy[i]
+        if nx < n and nx >= 0 and ny < n and ny >= 0 and li[nx][ny] == 1:
             cnt += 1
-        if x-1 >= 0 and li[x-1][y] == 1:
-            dfs(x-1,y)
-            cnt += 1
-        if y+1 < n and li[x][y+1] == 1:
-            dfs(x,y+1)
-            cnt += 1
-        if y-1 >= 0 and li[x][y-1] == 1:
-            dfs(x,y-1)
-            cnt += 1
+            dfs(nx,ny)
     return cnt
+
 for i in range(n):
     for j in range(n):
         if li[i][j] == 1:
