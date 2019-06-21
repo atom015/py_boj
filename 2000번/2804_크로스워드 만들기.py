@@ -1,6 +1,5 @@
 a,b = input().split()
 aix,bix = -1,-1
-chk = False
 for i in range(len(a)):
     for j in range(len(b)):
         if a[i] == b[j]:
