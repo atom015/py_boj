@@ -1,5 +1,5 @@
-a = input()
+a = int(input())
 b = input()
-for i in range(2,-1,-1):
-    print(int(a) * int(b[i]))
-print(int(a) * int(b))
+for i in b[::-1]:
+    print(a*int(i))
+print(a*int(b))
