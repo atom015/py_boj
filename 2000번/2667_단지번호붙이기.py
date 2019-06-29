@@ -10,7 +10,7 @@ def dfs(x,y):
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        if nx < n and nx >= 0 and ny < n and ny >= 0 and li[nx][ny] == '1':
+        if 0 <= nx < n and 0 <= ny < n and li[nx][ny] == '1':
             dfs(nx,ny)
     return cnt
 
