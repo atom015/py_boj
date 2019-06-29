@@ -1,29 +1,21 @@
 n,m = map(int,input().split())
-def push(x):
-    Queue.append(x)
-def size():
-    return len(Queue)
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
 Queue = []
 chk = [[False for i in range(m)] for i in range(n)]
 li = [[int(i) for i in list(input())] for i in range(n)]
-push([0,0,1])
+Queue.append([0,0,1])
 chk[0][0] = True
-while size() != 0:
+while len(Queue) != 0:
     p = Queue.pop(0)
     x,y,cnt = p[0],p[1],p[2]
-    # print(x,y)
-    if x == m-1 and y == n-1:
+    if y+1 == n and x+1 == m:
         print(cnt)
         break
-    if x+1 < m and li[y][x+1] == 1 and chk[y][x+1] == False:
-        push([x+1,y,cnt+1])
-        chk[y][x+1] = True
-    if x-1 >= 0 and li[y][x-1] == 1 and chk[y][x-1] == False:
-        push([x-1,y,cnt+1])
-        chk[y][x-1] = True
-    if y+1 < n and li[y+1][x] == 1 and chk[y+1][x] == False:
-        push([x,y+1,cnt+1])
-        chk[y+1][x] = True
-    if y-1 >= 0 and li[y-1][x] == 1 and chk[y-1][x] == False:
-        push([x,y-1,cnt+1])
-        chk[y-1][x] = True
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+        if 0 <= nx < m and 0 <= ny < n:
+            if li[ny][nx] == 1 and chk[ny][nx] == False:
+                Queue.append([nx,ny,cnt+1])
+                chk[ny][nx] = True
