@@ -1,7 +1,14 @@
 n = int(input())
-cnt = 1
-fib = [0, 1]
-for i in range(fib[1], n):
-    sum = fib[i-1] + fib[i]
-    fib.append(sum)
-print(fib[len(fib)-1])
+dp = [0 for i in range(n+1)]
+dp[0] = 0
+dp[1] = 1
+def fibo(n):
+    if n <= 1:
+        return dp[n]
+    else:
+        if dp[n] > 0:
+            return dp[n]
+        else:
+            dp[n] = fibo(n-1) + fibo(n-2)
+            return dp[n]
+print(fibo(n))
