@@ -1,16 +1,11 @@
-d = []
-b = []
+d = set()
+b = set()
 n,m = map(int,input().split())
 for i in range(n):
-    d.append(input())
-
+    d.add(input())
 for i in range(m):
-    b.append(input())
-
-d1 = set(d)
-b1 = set(b)
-result = d1 & b1
-result = sorted(list(result))
+    b.add(input())
+result = sorted(list(d & b))
 print(len(result))
 for i in result:
     print(i)
