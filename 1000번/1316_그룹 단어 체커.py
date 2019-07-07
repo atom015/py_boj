@@ -1,6 +1,6 @@
 t = int(input())
-group = []
 chk = 0
+group = []
 for i in range(t):
     group.append(input())
 for i in range(t):
