@@ -2,6 +2,7 @@ n = int(input())
 nl = sorted(list(map(int,input().split())))
 m = int(input())
 ml = list(map(int,input().split()))
+#이진검색으로 해주면된다.
 def binary_search(n,lo,hi,li):
     if lo > hi:
         return 0
