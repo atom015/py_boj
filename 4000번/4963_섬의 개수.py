@@ -1,8 +1,8 @@
 import sys
-sys.setrecursionlimit(500000)
+sys.setrecursionlimit(500000) #런타임에러가 나지않도록 재귀제한깊이를 늘려줬다.
+#상하좌우 대각선까지 비교리스트
 dx = [0,1,-1,0,1,-1,-1,1]
 dy = [1,0,0,-1,1,1,-1,-1]
-result = []
 def dfs(x,y):
     chk[x][y] = True
     for i in range(8):
