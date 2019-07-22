@@ -1,5 +1,4 @@
 def fibo(n):
-    global zero,one
     if n == 0:
         dp[n] = 0
         return dp[n]
