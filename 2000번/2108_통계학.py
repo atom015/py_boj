@@ -1,20 +1,10 @@
 import sys
 from collections import Counter
-from statistics import median
-n = []
 t = int(sys.stdin.readline())
-
-for i in range(t):
-    n.append(int(sys.stdin.readline()))
-
-def san(n):
-    global t
-    return round(sum(n) / t)
-
-def meadian(t):
-    t.sort()
-    return median(t)
-
+li = [int(sys.stdin.readline()) for i in range(t)]
+def s(t):
+    li.sort()
+    return li[t//2]
 def modFinder(nBox):
     cntDic = Counter(nBox)
     cntTpl = cntDic.most_common()
@@ -28,12 +18,7 @@ def modFinder(nBox):
 
     return mod
 
-def range(k):
-    global t
-    return (max(k)+t) - (min(k)+t)
-
-
-print(san(n))
-print(meadian(n))
-print(modFinder(n))
-print(range(n))
+print(round(sum(li)/t))
+print(s(t))
+print(modFinder(li))
+print((max(li)+t) - (min(li)+t))
