@@ -22,11 +22,10 @@ for i in range(n):
             l.sort(reverse=True)
             result.append(minus(l))
             sd = set()
-if len(result) == 0 or chk == True and len(sd) >= 1:
-    l = list(sd)
-    l.sort(reverse=True)
-    result.append(minus(l))
-if chk == False:
+if chk == False and len(result) == 0 and len(sd) >= 1:
     print(0)
-else:
-    print(max(result))
+    exit()
+l = list(sd)
+l.sort(reverse=True)
+result.append(minus(l))
+print(max(result))
