@@ -25,4 +25,4 @@ for i in range(1,n+1):
     if func(i) == True:
         cnt += 1
 print(cnt)
-#차이를 다음인덱스-현재인덱스로 구한다음
+#차이를 다음인덱스-현재인덱스로 구한다음 만약 차이가 모두 같다면 True출력 아니면 False출력
