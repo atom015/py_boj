@@ -22,7 +22,14 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
 4
 5
 """
-n = int(input())
-num = sorted(list(int(input()) for i in range(n)))
-for i in range(len(num)):
-    print(num[i])
+n = []
+for i in range(int(input())):
+    n.append(int(input()))
+
+for i in range(len(n)):
+    for j in range(len(n)):
+        if i != j:
+            if n[i] < n[j]:
+                n[i],n[j] = n[j],n[i]
+for i in n:
+    print(i)
