@@ -19,20 +19,11 @@ ABBABB
 예제 출력 1
 B
 """
-A = 0
-B = 0
-V = int(input())
-score = list(input())
-for scores in score:
-    if scores == "A":
-        A += 1
-    elif scores == "B":
-        B += 1
-    else:
-        pass
-if A > B:
+int(input())
+a = list(input())
+if a.count("A") > a.count("B"):
     print("A")
-elif B > A:
+elif a.count("B") > a.count("A"):
     print("B")
 else:
     print("Tie")
