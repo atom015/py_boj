@@ -1,15 +1,25 @@
-n = int(input()) #n을 입력받는다
-def Factorial(f):
-    mul = 1 #팩토리얼을 구하기위해 1부터 시작해준다.
-    cnt = 0 #
-    #팩토리얼을 구하는 for문
-    for i in range(1,f+1):
-        mul *= i
-    div = str(mul)[::-1] #팩토리얼을 뒤집어서 뒤에서 부터 시작한다.
-    for i in div:
-        if i != "0": #뒤에서부터 돌면서 0이아닌숫자가 나오면 끝낸다.
-            break
-        else: #아니면 0의개수를 새준다.
-            cnt += 1
-    return cnt
-print(Factorial(n)) #출력
+"""
+문제
+N!에서 뒤에서부터 처음 0이 아닌 숫자가 나올 때까지 0의 개수를 구하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 N이 주어진다. (0 ≤ N ≤ 500)
+
+출력
+첫째 줄에 구한 0의 개수를 출력한다.
+
+예제 입력 1
+10
+예제 출력 1
+2
+"""
+import math
+n = math.factorial(int(input()))
+n = str(n)[::-1]
+cnt = 0
+for i in n:
+    if i == "0":
+        cnt += 1
+    else:
+        break
+print(cnt)
