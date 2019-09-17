@@ -1,16 +1,9 @@
 """
-POT 성공
-시간 제한	메모리 제한	제출	정답	맞은 사람	정답 비율
-1 초	64 MB	420	361	337	86.632%
 문제
 The teacher has sent an e-mail to her students with the following task:
-
 "Write a programme that will determine and output the value of  if given the statement:
-
 and it holds that ,  to  are integers, and ,  to  one-digit integers." Unfortunately, when the teacher downloaded the task to her computer, the text formatting was lost so the task transformed into a sum of  integers:
-
 For example, without text formatting, the original task in the form of  became a task in the form of . Help the teacher by writing a programme that will, for given  integers from  to  determine and output the value of  from the original task.
-
 Please note: We know that it holds a  ( times).
 
 입력
