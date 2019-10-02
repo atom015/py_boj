@@ -22,11 +22,10 @@ def Sum(s,e,nd,l,r):
     #리스트 밖에 구하고자하는 범위가 있는경우
     if l > e or r < s:return 0 #l > e경우 l,r뒤에 있는경우,r < s경우 l,r앞에 있는경우이다 겹치지 않으므로 0을 리턴한다.
     #범위 안에 있는경우
-    if l <= s and e <= r:return tree[nd]#구해야하는 합의 범위는 l,r인데,s,e는 그 범위에 모두 포함되고, 그 node의 자식도 모두 포함되기 때문에 tree[node]를 리턴한다.
+    if l <= s and e <= r:return tree[nd]#구해야하는 합의 범위는 l,r인데,s,e는 그 범위에 모두 포함되기 때문에 s,e의 합인 tree[idx]를 리턴한다.
     #그맇지 않다면 두 부분으로 나누어 합을 구하기
     m = (s+e)//2
-    tmp = Sum(s,m,nd*2,l,r)+Sum(m+1,e,nd*2+1,l,r)
-    return tmp
+    return Sum(s,m,nd*2,l,r)+Sum(m+1,e,nd*2+1,l,r)
 #1.[start,end]에 index가 포함되는 경우
 #2.[start,end]에 index가 포함되지 않는 경우
 def update(n,s,e,t,dif):
@@ -34,11 +33,10 @@ def update(n,s,e,t,dif):
         tree[n] += dif
     else: #2번의 경우 return
         return
-    if s == e: #노드가 리프노드이면 return
-        return
-    m = (s+e)//2
-    update(n*2,s,m,t,dif)
-    update(n*2+1,m+1,e,t,dif)
+    if s != e: #노드가 리프노드가 아니면 재귀를 돈다.
+        m = (s+e)//2
+        update(n*2,s,m,t,dif)
+        update(n*2+1,m+1,e,t,dif)
 
 init(0,n-1,1)
 for i in range(m+k):
