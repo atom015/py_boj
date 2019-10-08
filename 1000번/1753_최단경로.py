@@ -9,11 +9,11 @@ adj = [[] for i in range (v+1)] #인접리스트
 ans = [10000000]*(v+1) #최소비용
 for i in range(e):
     a, b, c = map(int,ip().split())
-    adj[a].append((b, c))
+    adj[a].append((b,c))
 
 def dijkstra(s):
     q = Q.PriorityQueue() #우선순위큐(넣는 순서는 상관없지만 나올때는 가장 작은 값부터 나온다는 특징이있다.)
-    q.put((0, s)) #큐에 초기비용,시작점을 넣어준다.
+    q.put((0,s)) #큐에 초기비용,시작점을 넣어준다.
     ans[s] = 0 #시작지점은 0으로 넣어준다.
     while not q.empty(): # q가 비어있지않았다면
         # (0, 1)
