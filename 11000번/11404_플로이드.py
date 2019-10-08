@@ -15,7 +15,7 @@ def floydWarshall():
         for i in range(n):
             #j:도착노드
             for j in range(n):
-                d[i][j] = min(d[i][k]+d[k][j],d[i][j])
+                d[i][j] = min(d[i][k]+d[k][j],d[i][j]) #현재 노드의 가중치(d[i][j])보다 거쳐가는 노드의 가중치(d[i][k]+d[k][j])가 더작다면 갱신
     for i in range(n):
         for j in range(n):
             if d[i][j] == 1e9: #만약에 갈수없으면 0출력
