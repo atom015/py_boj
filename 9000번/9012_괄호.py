@@ -26,18 +26,18 @@ NO
 YES
 NO
 """
+def func(s):
+    stack = []
+    for i in s:
+        if i == "(":
+            stack.append(i)
+        if i == ")":
+            if "(" in stack:
+                stack.pop()
+            else:
+                return "NO"
+    if len(stack) >= 1:
+        return "NO"
+    return "YES"
 for i in range(int(input())):
-    vps = list(input())
-    while True:
-        if bool(vps) == False:
-            print("YES")
-            break
-        if vps[0] == ")":
-            print("NO")
-            break
-        elif vps[len(vps)-1] == "(":
-            print("NO")
-            break
-        else:
-            vps.remove("(")
-            vps.remove(")")
+    print(func(input()))
