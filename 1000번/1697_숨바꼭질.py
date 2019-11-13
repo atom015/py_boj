@@ -17,24 +17,20 @@
 수빈이가 5-10-9-18-17 순으로 가면 4초만에 동생을 찾을 수 있다.
 """
 n,k = map(int,input().split())
-visited = [False for i in range(100001)]
-q = []
-q.append([n,0])
-visited[n] = True
-
-while len(q) != 0:
-    p = q.pop(0)
-    now = p[0]
-    cnt = p[1]
-    if now == k: #동생이 있는 위치에 도달시 종료
+q = [[n,0]]
+v = [False for i in range(100001)]
+v[n] = True
+while q:
+    p,cnt = q.pop(0)
+    if p == k:
         print(cnt)
         break
-    if now+1 < 100001 and visited[now+1] == False:
-        q.append([now+1,cnt+1])
-        visited[now+1] = True
-    if now-1 >= 0 and visited[now-1] == False:
-        q.append([now-1,cnt+1])
-        visited[now-1] = True
-    if now*2 < 100001 and visited[now*2] == False:
-        q.append([now*2,cnt+1])
-        visited[now*2] = True
+    if 0 <= p-1 and v[p-1] == False:
+        q.append([p-1,cnt+1])
+        v[p-1] = True
+    if  p+1 <= 100000 and v[p+1] == False:
+        q.append([p+1,cnt+1])
+        v[p+1] = True
+    if  p*2 <= 100000 and v[p*2] == False:
+        q.append([p*2,cnt+1])
+        v[p*2] = True
