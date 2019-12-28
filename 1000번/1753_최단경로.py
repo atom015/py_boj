@@ -34,7 +34,4 @@ def dijkstra(s):
 dijkstra(s)
 
 for i in range (1,v+1):
-    if ans[i] == 10000000: #만약에 inf값이 그대로 있으면 "INF"출력
-        print("INF")
-    else: #만약에 inf값이 아니라면 최소비용출력
-        print(ans[i])
+    print("INF" if d[i] == 1e9 else d[i]) #만약에 갈수없으면 INF출력 아니면 그냥출력
