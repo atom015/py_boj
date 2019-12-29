@@ -1,95 +1,25 @@
-"""
-문제
-비어있는 공집합 S가 주어졌을 때, 아래 연산을 수행하는 프로그램을 작성하시오.
-
-add x: S에 x를 추가한다. (1 ≤ x ≤ 20) S에 x가 이미 있는 경우에는 연산을 무시한다.
-remove x: S에서 x를 제거한다. (1 ≤ x ≤ 20) S에 x가 없는 경우에는 연산을 무시한다.
-check x: S에 x가 있으면 1을, 없으면 0을 출력한다.
-toggle x: S에 x가 있으면 x를 제거하고, 없으면 x를 추가한다. (1 ≤ x ≤ 20)
-all: S를 {1, 2, ..., 20} 으로 바꾼다.
-empty: S를 공집합으로 바꾼다.
-입력
-첫째 줄에 수행해야 하는 연산의 수 M (1 ≤ M ≤ 3,000,000)이 주어진다.
-
-둘째 줄부터 M개의 줄에 수행해야 하는 연산이 한 줄에 하나씩 주어진다.
-
-출력
-check 연산이 주어질때마다, 결과를 출력한다.
-
-예제 입력 1
-26
-add 1
-add 2
-check 1
-check 2
-check 3
-remove 2
-check 1
-check 2
-toggle 3
-check 1
-check 2
-check 3
-check 4
-all
-check 10
-check 20
-toggle 10
-remove 20
-check 10
-check 20
-empty
-check 1
-toggle 1
-check 1
-toggle 1
-check 1
-예제 출력 1
-1
-1
-0
-1
-0
-1
-0
-1
-0
-1
-1
-0
-0
-0
-1
-0
-"""
-sets = set()
-def chk(x):
-    if int(x) in sets:
-        return 1
+import sys
+ip = sys.stdin.readline
+v = [False for i in range(21)]
+for _ in range(int(ip())):
+    s = ip().strip()
+    if s == "empty":
+        v = [False for i in range(21)]
+    elif s == "all":
+        v = [True for i in range(21)]
     else:
-        return 0
-def add(x):
-    if int(x) not in sets:
-        sets.add(int(x))
-def remove(x):
-    if len(sets) != 0:
-        sets.remove(int(x))
-def toggle(x):
-    if int(x) in sets:
-        sets.remove(int(x))
-    else:
-        sets.add(int(x))
-for i in range(int(input())):
-    n = input()
-    if n[:3] == "add":
-        add(n[4:])
-    elif n[:5] == "check":
-        print(chk(n[6:]))
-    elif n[:6] == "remove":
-        remove(n[7:])
-    elif n[:6] == "toggle":
-        toggle(n[7:])
-    elif n == "all":
-        sets = set(i for i in range(1,21))
-    elif n == "empty":
-        sets = set()
+        s,x = s.split()
+        if s == "add":
+            v[int(x)] = True
+        elif s == "remove":
+            v[int(x)] = False
+        elif s == "check":
+            if v[int(x)] == True:
+                print(1)
+            else:
+                print(0)
+        else:
+            if v[int(x)] == True:
+                v[int(x)] = False
+            else:
+                v[int(x)] = True
