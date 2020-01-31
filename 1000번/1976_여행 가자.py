@@ -10,12 +10,6 @@ def up(p,a,b):
         p[b] = a
     else:
         p[a] = b
-def fp(p,a,b):
-    a = gp(p,a)
-    b = gp(p,b)
-    if a == b:
-        return 1
-    return 0
 n = int(input())
 m = int(input())
 p = [i for i in range(m+1)]
@@ -26,7 +20,7 @@ for i in range(n):
         if arr[i][j] == 1:
             up(p,i+1,j+1)
 c = p[plan[0]]
-for i in range(1,len(plan)):
+for i in range(1,m):
     if c != p[plan[i]]:
         print("NO")
         exit()
