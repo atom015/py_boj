@@ -10,9 +10,7 @@ max_level = 0
 def getTree(nd,parent):
 	global max_level
 	depth[nd] = depth[parent]+1
-
 	ac[nd][0] = parent
-
 
 	max_level = floor(log2(MAX))
 
