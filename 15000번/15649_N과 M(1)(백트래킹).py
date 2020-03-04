@@ -1,15 +1,18 @@
-arr = [0 for i in range(9)]
-visited = [False for i in range(9)]
-n,m = map(int,input().split())
 def func(cnt):
-    if cnt == m:
-        for i in range(m):
-            print(arr[i],end=' ')
+    if cnt == k: #cnt가 k되었으므로 종료하고 출력한다.
+        for i in v:
+            print(i,end=' ')
         print()
-    for i in range(1,n+1):
-        if visited[i] == False:
-            visited[i] = True
-            arr[cnt] = i
+    else:
+        for i in range(len(arr)):
+            if li[i]:continue
+            li[i] = 1
+            v.append(arr[i])
             func(cnt+1)
-            visited[i] = False
+            v.pop()
+            li[i] = 0
+n,k = map(int,input().split())
+li = [0 for i in range(n)]
+v = []
+arr = [i+1 for i in range(n)]
 func(0)
