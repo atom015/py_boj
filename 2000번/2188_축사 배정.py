@@ -9,12 +9,10 @@ def dfs(nd):
     for i in arr[nd]:
         if c[i]:continue
         c[i] = True
-
         if d[i] == 0 or dfs(d[i]):
             d[i] = nd
             return True
     return False
-
 for i in range(1,n+1):
     li = list(map(int,input().split()))
     k = li[0]
