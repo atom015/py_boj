@@ -1,40 +1,10 @@
-"""
-단어 공부 성공
-시간 제한	메모리 제한	제출	정답	맞은 사람	정답 비율
-2 초	128 MB	40775	15174	12197	37.860%
-문제
-알파벳 대소문자로 된 단어가 주어지면, 이 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오. 단, 대문자와 소문자를 구분하지 않는다.
-
-입력
-첫째 줄에 알파벳 대소문자로 이루어진 단어가 주어진다. 주어지는 단어의 길이는 1,000,000을 넘지 않는다.
-
-출력
-첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
-
-예제 입력 1
-Mississipi
-예제 출력 1
-?
-예제 입력 2
-zZa
-예제 출력 2
-Z
-예제 입력 3
-z
-예제 출력 3
-Z
-예제 입력 4
-baaa
-예제 출력 4
-A
-"""
-n = input().upper() #출력을 대문자로 하니까 대문자로 바꾸어주었다.
-chk = {i:0 for i in set(n)} #각각 단어들만 넣어주었다 (값은 0으로)
-for i in n: #n을 돌면서 단어들개수를 더해준다.
-    chk[i] += 1
-max = max(chk.values()) #가장 많은단어개수
-result = set(k for k,v in chk.items() if max == v) #중복없이 max랑 값이 같은것들을 넣어준다.
-if len(result) == 1: #만약에 단어가 한개면 그단어 출력
-    print(result.pop())
-else: #아니면 "?"출력
-    print("?")
+s = input().upper()
+dic = {i:0 for i in s}
+for i in s:
+    dic[i] += 1
+MAX = max(dic.values())
+ans = ""
+for k,v in dic.items():
+    if v == MAX and k not in ans:
+        ans += k
+print("?" if len(ans) >= 2 else ans)
