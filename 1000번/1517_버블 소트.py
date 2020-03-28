@@ -14,7 +14,7 @@ def merge(s,mid,e):
             i += 1
         else:
             ans.append(arr[j])
-            ret += (mid - i + 1)
+            ret += (mid - i + 1) #(mid-i+1)은 왼쪽 배열에 있는 수만큼 바꾸기 때문이다.
             j += 1
     while j <= e:
         ans.append(arr[j])
