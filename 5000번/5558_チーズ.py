@@ -3,8 +3,7 @@ from sys import *
 ip = stdin.readline
 n,m,c = map(int,ip().split())
 arr = [list(ip().strip()) for i in range(n)]
-dx,dy = [0,0,1,-1],[1,-1,0,0]
-chk,ret,mx,my = 1,0,0,0
+chk,ret = 1,0
 for i in range(n):
     for j in range(m):
         if arr[i][j] == "S":
@@ -16,8 +15,8 @@ def bfs(v):
     v[mx][my] = True
     while q:
         x,y,cnt = q.popleft()
-        for i in range(4):
-            nx,ny = dx[i]+x,dy[i]+y
+        for dx,dy in (0,1),(0,-1),(1,0),(-1,0):
+            nx,ny = dx+x,dy+y
             if 0 <= nx < n and 0 <= ny < m and not v[nx][ny] and arr[nx][ny] != "X":
                 if arr[nx][ny] in "123456789" and chk >= int(arr[nx][ny]):
                     chk += 1
