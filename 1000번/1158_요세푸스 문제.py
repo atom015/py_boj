@@ -1,10 +1,13 @@
 from collections import deque
-n,m = map(int,input().split())
-
-q = deque([i+1 for i in range(n)])
+n,k = map(int,input().split())
+arr = deque([i+1 for i in range(n)])
+ans = []
 print("<",end='')
-for i in range(n-1):
-    for j in range(m-1):
-        q.append(q.popleft())
-    print(q.popleft(),end=', ')
-print(q.popleft(),end=">")
+while arr:
+    for i in range(k-1):
+        arr.append(arr.popleft())
+    if len(arr) != 1:
+        print(arr.popleft(),end=', ')
+    else:
+        print(arr.popleft(),end='')
+print(">")
