@@ -26,7 +26,7 @@ while 1:
     d = [0 for i in range(n+1)]
     arr = [[] for i in range(n+1)]
     v = [0 for i in range(n+1)]
-    im = [0 for i in range(100000+1)]
+    im = [0 for i in range(m+1)] #UNKNOWN인지 체크
     q = []
     for i in range(1,m+1):
         li = ip().strip().split()
@@ -38,14 +38,15 @@ while 1:
         else:
             a,b = list(map(int,li[1:]))
             q.append([a,b])
-            if find(p,a) != find(p,b):
+            if find(p,a) != find(p,b):#UNKNOWN체크
                 im[len(q)-1] = 1
+    # 각각 노드들까지 오는데 거친 간선의 가중치의 합을 구해준다.
     for i in range(1,n+1):
         if not v[i]:
             dfs(i,0)
     for i in range(len(q)):
         s,e = q[i]
-        if im[i]:
+        if im[i]: #UNKNOWN이면 체크
             print("UNKNOWN")
         else:
             print(d[e]-d[s])
