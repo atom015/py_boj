@@ -14,7 +14,6 @@ dy = [0,-1,0,1]
 for i in range(int(input())): #테스트케이스 입력
     m,n,k = map(int,input().split()) #M:가로길이,N:세로길이,K:위치개수
     li = [[0 for i in range(m)] for i in range(n)] #인접행렬
-    #입력
     for i in range(k):
         a,b = map(int,input().split())
         li[b][a] = 1
