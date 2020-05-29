@@ -1,7 +1,7 @@
 import sys,copy
 sys.setrecursionlimit(500000) #런타임에러가 안나게 재귀재한깊이를 늘려준다.
 n = int(input())
-#상하좌우 비교 리스트
+# 상하좌우 비교 리스트
 dx = [1,0,-1,0]
 dy = [0,-1,0,1]
 li = [list(input()) for i in range(n)] # N*N이니까 str리스트로 받아주고 n번만큼 돈다.
