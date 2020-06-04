@@ -7,7 +7,7 @@ def digital(n):
         n = [int(i) for i in n]
         n = sum(n)
     return n
-while 1:
+while  1:
     n = int(input())
     if n == 0:
         break
