@@ -1,0 +1,9 @@
+a = int(input(),2)
+b = int(input(),2)
+n = 100000
+bit = 2**100000-1
+print('{:0{w}b}'.format(a & b,w=n))
+print('{:0{w}b}'.format(a | b,w=n))
+print('{:0{w}b}'.format(a ^ b,w=n))
+print('{:0{w}b}'.format(bit-a,w=n))
+print('{:0{w}b}'.format(bit-b,w=n))
